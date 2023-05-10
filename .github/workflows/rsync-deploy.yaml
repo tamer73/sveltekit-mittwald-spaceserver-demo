@@ -1,0 +1,35 @@
+name: Deploy to Mittwald SpaceServer 🚀
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pull repository into the current pipeline
+      - name: Pull repository
+        uses: actions/checkout@v3
+
+        # - name: Install and Build for rsync 🔧
+        run: |
+          npm ci
+          npm run build
+
+      # rsync (via SSH key auth)
+      # We will only sync the output build/-folder
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.2.1
+        with:
+          # be careful with --delete option!
+          switches: -avzr --dry-run
+          # local path, defaults to GITHUB_WORKSPACE and is relative to it
+          path: /build/
+          # remote_path, something like /html/sveltekit-p-n238roi4/
+          remote_path: ${{ secrects.SSH_PATH }}
+          remote_host: ssh.fabbenstedt.project.host
+          remote_user: ${{ secrets.SSH_USER }}
+          # The private key, public key part must be added to Mittwald project/user
+          remote_key: ${{ secrets.SSH_KEY }}
