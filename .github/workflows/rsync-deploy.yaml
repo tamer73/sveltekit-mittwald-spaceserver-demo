@@ -3,9 +3,9 @@ name: Deploy to Mittwald SpaceServer 🚀
 on:
   push:
     branches: [main]
-  # Sustainability: Don't trigger build for updated README
-  paths-ignore:
-    - '**/README.md'
+    # Sustainability: Don't trigger build for updated README
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
   build-and-deploy:
