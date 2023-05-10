@@ -47,3 +47,18 @@ jobs:
           remote_user: ${{ secrets.SSH_USER }}
           # The private key, public key part must be added to Mittwald project/user
           remote_key: ${{ secrets.SSH_KEY }}
+
+      # Restart NodeJS app after file change via SSH command
+      # https://github.com/appleboy/ssh-action
+      - name: Execute SSH commmands on remote server
+        uses: appleboy/ssh-action@v0.1.10
+        env:
+          SSH_PATH: ${{ secrets.SSH_PATH }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          envs: SSH_PATH
+          # TODO: cd in to $SSH_PATH needed in future?
+          script: |
+            mittnitectl job restart node
