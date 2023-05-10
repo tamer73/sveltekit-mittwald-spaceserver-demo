@@ -28,16 +28,21 @@ jobs:
           npm ci
           npm run build
 
-      # Create an optimized node_modules folder
-      # https://kit.svelte.dev/docs/adapter-node recommends "--omit dev"
-      - name: "Create node_modules for server (optimized)"
-        run: |
-          rm -rf node_modules/
-          npm ci --omit dev
-
       - name: "Debug: Show generated files"
         run: |
           ls -ls
+
+      # TODO: Disabled by now, this lead to a 404/500 not found error for /sverdle 🤔
+      # Create an optimized node_modules folder
+      # https://kit.svelte.dev/docs/adapter-node recommends "--omit dev"
+      # - name: "Create node_modules for server (optimized)"
+      #   run: |
+      #     rm -rf node_modules/
+      #     npm ci --omit dev
+
+      # - name: "Debug: Show generated files"
+      #   run: |
+      #     ls -ls
 
       # rsync (via SSH key auth)
       # https://github.com/Burnett01/rsync-deployments
