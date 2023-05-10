@@ -31,7 +31,7 @@ jobs:
           # local path, defaults to GITHUB_WORKSPACE and is relative to it
           path: /build/
           # remote_path, something like /html/sveltekit-p-n238roi4/
-          remote_path: ${{ secrects.SSH_PATH }}
+          remote_path: ${{ secrets.SSH_PATH }}
           remote_host: ssh.fabbenstedt.project.host
           remote_user: ${{ secrets.SSH_USER }}
           # The private key, public key part must be added to Mittwald project/user
