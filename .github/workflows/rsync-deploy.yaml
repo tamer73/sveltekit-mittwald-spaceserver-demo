@@ -16,21 +16,27 @@ jobs:
       - name: Pull repository
         uses: actions/checkout@v3
 
-      - name: "npm: install and build 🔧"
+      # Setup NodeJS LTS
+      # https://github.com/actions/setup-node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install and build via npm 🔧 
         run: |
           npm ci
           npm run build
+          ls -ls
 
       # rsync (via SSH key auth)
-      # We will only sync the output build/-folder
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2.1
         with:
           # be careful with --delete option!
           switches: -avzr --dry-run
           # local path, defaults to GITHUB_WORKSPACE and is relative to it
-          path: /build/
-          # remote_path, something like /html/sveltekit-p-n238roi4/
+          path: /
+          # remote_path, something like /html/sveltekit-p-n238roi4/ 
           remote_path: ${{ secrets.SSH_PATH }}
           remote_host: ssh.fabbenstedt.project.host
           remote_user: ${{ secrets.SSH_USER }}
