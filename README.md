@@ -2,7 +2,7 @@
 
 - https://kit.svelte.dev/
 - https://kit.svelte.dev/docs/adapter-node
-- Deployment via rsync/SSH
+- Deployment via rsync/SSH to https://www.mittwald.de/space-server
 
 ## How was this created?
 

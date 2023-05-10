@@ -22,9 +22,10 @@ jobs:
         with:
           node-version: 18
 
+      # https://kit.svelte.dev/docs/adapter-node recommends "--omit dev"
       - name: "Install and build via npm 🔧" 
         run: |
-          npm ci
+          npm ci --omit dev
           npm run build
 
       - name: "Debug: Show generated files"
