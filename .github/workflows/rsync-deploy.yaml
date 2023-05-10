@@ -63,7 +63,7 @@ jobs:
         env:
           SSH_PATH: ${{ secrets.SSH_PATH }}
         with:
-          host: ${{ secrets.SSH_HOST }}
+          host: ssh.fabbenstedt.project.host
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           envs: SSH_PATH
