@@ -20,5 +20,6 @@ npm create svelte@latest .
 npm i -D @sveltejs/adapter-node
 ```
 
+- Switched `adapter-auto` to `adapter-node` in `svelte.config.js`
 - Modified `routes/+layout.svelte` as suggested in https://github.com/sveltejs/kit/issues/9089
 
