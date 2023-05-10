@@ -22,11 +22,18 @@ jobs:
         with:
           node-version: 18
 
-      # https://kit.svelte.dev/docs/adapter-node recommends "--omit dev"
+      # Build the build/-directory
       - name: "Install and build via npm 🔧" 
         run: |
-          npm ci --omit dev
+          npm ci
           npm run build
+
+      # Create an optimized node_modules folder
+      # https://kit.svelte.dev/docs/adapter-node recommends "--omit dev"
+      - name: "Create node_modules for server (optimized)"
+        run: |
+          rm -rf node_modules/
+          npm ci --omit dev
 
       - name: "Debug: Show generated files"
         run: |
