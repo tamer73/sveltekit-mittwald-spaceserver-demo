@@ -8,7 +8,7 @@
 
 - [ ] Open issue for "not found" error for _app/xxx/-files https://github.com/sveltejs/kit/issues/9089
 - [ ] Use optimized node_modules/-folder, as described here https://kit.svelte.dev/docs/adapter-node
-
+- [ ] Is `ORIGIN=https://p-ni13ir.project.space node build` supported by Mittwald? https://kit.svelte.dev/docs/adapter-node#environment-variables-origin-protocol-header-and-host-header
 ## How was this created?
 
 ```bash
