@@ -3,6 +3,9 @@ name: Deploy to Mittwald SpaceServer 🚀
 on:
   push:
     branches: [main]
+  # Sustainability: Don't trigger build for updated README
+  paths-ignore:
+    - '**/README.md'
 
 jobs:
   build-and-deploy:
@@ -13,7 +16,7 @@ jobs:
       - name: Pull repository
         uses: actions/checkout@v3
 
-        # - name: Install and Build for rsync 🔧
+      - name: "npm: install and build 🔧"
         run: |
           npm ci
           npm run build
