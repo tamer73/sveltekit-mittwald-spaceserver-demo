@@ -1,12 +1,17 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
+
+	// Suggested here: https://github.com/sveltejs/kit/issues/9089
+	import { updated } from '$app/stores';
 </script>
+
+  
 
 <div class="app">
 	<Header />
 
-	<main>
+	<main  data-sveltekit-reload={$updated ? '' : 'off'}>
 		<slot />
 	</main>
 
