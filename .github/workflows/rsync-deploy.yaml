@@ -50,7 +50,7 @@ jobs:
         uses: burnett01/rsync-deployments@5.2.1
         with:
           # be careful with --delete option, use --dry-run to check connection
-          switches: -avzr --delete --exclude="/.git/" --exclude="/.github/"
+          switches: -avvvzr --delete --exclude="/.git/" --exclude="/.github/"
           # local path, defaults to GITHUB_WORKSPACE and is relative to it
           path: /
           # remote_path, something like /html/sveltekit-p-n238roi4/ 
