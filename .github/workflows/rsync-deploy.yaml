@@ -56,7 +56,7 @@ jobs:
           # remote_path, something like /html/sveltekit-p-n238roi4/ 
           remote_path: /html/sveltekit-demo-u7qzj/
           remote_host: ssh.fabbenstedt.project.host
-          remote_user: ${{ secrets.SSH_USER }}
+          remote_user: ssh-f2fuxn@p-ni13ir
           # The private key, public key part must be added to Mittwald project/user
           remote_key: ${{ secrets.SSH_KEY }}
 
@@ -64,11 +64,12 @@ jobs:
       # https://github.com/appleboy/ssh-action
       - name: Execute SSH commmands on remote server
         uses: appleboy/ssh-action@v0.1.10
+        # if you need variables inside the script commands
         env:
-          SSH_PATH: ${{ secrets.SSH_PATH }}
+          SSH_PATH: /html/sveltekit-demo-u7qzj/
         with:
           host: ssh.fabbenstedt.project.host
-          username: ${{ secrets.SSH_USER }}
+          username: ssh-f2fuxn@p-ni13ir
           key: ${{ secrets.SSH_KEY }}
           envs: SSH_PATH
           # TODO: cd in to $SSH_PATH needed in future?
