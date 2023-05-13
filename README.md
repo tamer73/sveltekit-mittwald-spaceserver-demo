@@ -1,5 +1,7 @@
 # sveltekit-mittwald-spaceserver-demo
 
+The official SvelteKit demo application, ready to be rsynced via SSH. 
+
 - https://kit.svelte.dev/
 - https://kit.svelte.dev/docs/adapter-node
 - Deployment via rsync/SSH to https://www.mittwald.de/space-server
