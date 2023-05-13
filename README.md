@@ -6,9 +6,9 @@ The official SvelteKit demo application, ready to be deployed via rsync/SSH to [
 - https://kit.svelte.dev/docs/adapter-node
 - Deployment via rsync/SSH to https://www.mittwald.de/space-server
 
-Status: 🚧 Work in progress / broken 🚧 
+Status: 🚧 Work in progress / Broken 🚧 
 
-- [ ] Currently rsync runs into timeouts because the many files of `node_modules`? (See TODOs below for optimizing this, `adapter-node` needs these files. Alternative would be to use `git pull` on the server and run `npm i && npm run build` there)
+- [ ] Currently rsync runs into timeouts because the many files of `node_modules`? See TODOs below for optimizing this, `adapter-node` needs these files. Alternative would be to use `git pull` on the server and run `npm i && npm run build` there. This is entirely a GitHub challenge, NOT a problem of Mittwald SpaceServer.
 
 ## Setup
 
