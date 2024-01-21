@@ -54,9 +54,9 @@ jobs:
           # local path, defaults to GITHUB_WORKSPACE and is relative to it
           path: /
           # remote_path, something like /html/sveltekit-p-n238roi4/ 
-          remote_path: /html/sveltekit-demo-u7qzj/
-          remote_host: ssh.fabbenstedt.project.host
-          remote_user: ssh-f2fuxn@p-ni13ir
+          remote_path: /html/svelte-n99l4/
+          remote_host: ssh.fiestel.project.host
+          remote_user: ssh-gzff3p@a-a25qw2
           # The private key, public key part must be added to Mittwald project/user
           remote_key: ${{ secrets.SSH_KEY }}
 
@@ -66,10 +66,10 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         # if you need variables inside the script commands
         env:
-          SSH_PATH: /html/sveltekit-demo-u7qzj/
+          SSH_PATH: /html/svelte-n99l4/
         with:
-          host: ssh.fabbenstedt.project.host
-          username: ssh-f2fuxn@p-ni13ir
+          host: ssh.fiestel.project.host
+          username: ssh-gzff3p@a-a25qw2
           key: ${{ secrets.SSH_KEY }}
           envs: SSH_PATH
           # TODO: cd in to $SSH_PATH needed in future?
